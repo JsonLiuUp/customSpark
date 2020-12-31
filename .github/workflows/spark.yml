@@ -22,6 +22,8 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
+      - name: change permission
+        run: chmod -R 777 ./*
       - name: Run install
         run: ./dev/make-distribution.sh --name spark --tgz -Dhadoop.version=2.7.3 -Phive -Phive-thriftserver -Pyarn
       - name: display
